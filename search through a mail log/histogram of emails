@@ -1,1 +1,28 @@
+handel=open('mail log.txt')
+counts=dict()                                                  # dictionary data structure for days
+emails=dict()                                                  # dictionary data structure for address email
+for line in handel:
+    # writing a dictionary for the day that emails are received and the iteration of each day
+    if line.startswith('From') and len(line.split())>3:
+        words=line.split()
+        word=words[2]
+        counts[word]=counts.get(word,0)+1
+    # writing a dictionary for the address email that are received and their iteration
+    if line.startswith('From') and len(line.split())>2:
+        words=line.split()
+        word=words[1]
+        emails[word]=emails.get(word,0)+1
+        
+print('The receiving days of emails and number of its iteration is :\n',counts)
+print('The receivng emails and their iteration is:\n',emails)
+
+# printing the most common address email and its iteration       
+mostemail=None
+mostcount=None
+
+for key,value in emails.items():
+    if mostcount is None or value>mostcount:
+        mostcount=value
+        mostemail=key
+print('The most email was recieved from',' ',mostemail,'by the number: ',mostcount)
 
