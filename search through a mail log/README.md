@@ -8,7 +8,6 @@ The order of functions used in this code:
 * look for lines that start with “From”, then look for the second word (which is the address email) and keep a running count of email address.
   * emails[word]=emails.get(word,0)+1
 * look for lines that start with “From”, look for the five word (which is the hour), then split it with ':', and choose the first item.
-* Use a for loop to figure out who has the most messages in the file and then print the result.
   * hour[word1]=hour.get(word1,0)+1
 * print three dictionary datasets.
-* Use a for loop with emails dictionary to to figure out who has the most messages in the file.
+* Use a for loop to figure out who has the most messages in the file and then print the result.
