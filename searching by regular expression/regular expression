@@ -1,0 +1,16 @@
+h=open('11.txt')
+
+# searching throught each line and find 
+sum=0
+count=0
+import re
+for line in h:
+    line=line.rstrip()
+    g=re.findall('@([^  \>;)]+)',line)
+    
+    count=count+1
+    
+    if len(g)>=1:
+        sum=sum+1
+        print('line', count,'contain', g)
+print('there is', sum,'line','match the Reg Exp')
