@@ -2,6 +2,7 @@ handel=open('mail log.txt')
 counts=dict()                                                  # dictionary data structure for days
 emails=dict()                                                  # dictionary data structure for the address email
 hour=dict()                                                    # dictionary data structure for the hour of the day for each of the messages
+letters=dict()                                                 # dictionary data structure for counting the letters a-z of the txt
 for line in handel:
     # writing a dictionary for the day that emails are received and the iteration of each day
     if line.startswith('From') and len(line.split())>3:
@@ -36,4 +37,29 @@ for key,value in emails.items():
         mostcount=value
         mostemail=key
 print('The most email was received from',' ',mostemail,'by the number: ',mostcount)
+
+# Writing a dictionary for the counting the letters a-z in the text
+for line in handel:
+    word=line.split()
+    for word2 in word:
+        if word2.isdigit():
+            continue
+        else:
+            word1=word2.lower()
+            num=len(word1)
+            i=0
+            while i<num:
+              letter=word1[i]
+              if letter.isdigit() or letter in [':','.','@','-','<','>',',',';','(',')','[',']']:
+                  i=i+1
+                  continue
+              letters[letter]=letters.get(letter,0)+1
+              i=i+1
+letters=(sorted([(v,k) for k,v in letters.items()]))
+sum=0
+for v,k in counts:
+    sum=sum+v
+for v,k in counts:
+    print(k, round((v/sum*100),2),'%')
+
 
