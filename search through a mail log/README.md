@@ -11,4 +11,4 @@ The order of functions used in this code:
   * hour[word1]=hour.get(word1,0)+1
 * print three dictionary datasets.
 * Use a for loop to figure out who has the most messages in the file and then print the result.
-* Reads every line of the text, and splits it into its words. Then based on the length of each word, counts letters and make a dictionary of letters and their frequency. after sorting the dictionary print the result.
+* Reads every line of the text, and splits it into its words. Then based on the length of each word, counts letters and make a dictionary of letters and their frequency. Sorting the dictionary print the result.
