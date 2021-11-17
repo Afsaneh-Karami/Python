@@ -1,9 +1,9 @@
 h=open('11.txt')
 
-# searching throught each line and find 
+# searching throught each line and find domain name of emails by regular expression
 sum=0
 count=0
-import re
+import re               # The regular expression library re
 for line in h:
     line=line.rstrip()
     g=re.findall('@([^  \>;)]+)',line)
@@ -13,4 +13,22 @@ for line in h:
     if len(g)>=1:
         sum=sum+1
         print('line', count,'contain', g)
-print('there is', sum,'line','match the Reg Exp')
+print('there is', sum,'line','match the Reg Exp (domain name of email address)')
+
+# Extract the number from each of the lines and compute the average of the numbers and print out the average as an integer
+count1=0
+sum1=0
+for line in h:
+    i=0
+    g1=re.findall('[0-9]+',line)
+    while i<=(len(g1)-1):
+        if int(g1[i])<1:
+            i=i+1
+            continue
+        count1=count1+1
+        sum1=sum1+int(g1[i])
+        i=i+1
+        
+print('average of', count, 'number in txt is',sum1/count1)
+
+
