@@ -1,5 +1,7 @@
 # Retrieving web pages "http://data.pr4e.org/romeo.txt" with urllib
 import urllib.request,urllib.parse,urllib.error
+from bs4 import BeautifulSoup
+import ssl
 cout=0
 i=0
 fhand=urllib.request.urlopen('https://en.wikipedia.org/wiki/Artificial_intelligence')
@@ -14,3 +16,14 @@ for line in fhand:
         else:
             continue
 print(cout)
+
+# Ignore SSL certificate errors
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+# retrieves all of the p tags and print
+soup=BeautifulSoup(fhand, 'html.parser')
+tags=soup('p')
+print(len(tags))
+
