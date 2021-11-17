@@ -32,6 +32,16 @@ While we can manually send and receive data over HTTP using the socket library, 
 Using urllib, you can treat a web page much like a file. You simply indicate which web page you would like to retrieve and urllib handles all of the HTTP protocol and header details. Once the web page has been opened with urllib.urlopen, we can treat it like a file and read through it using a for loop. </br>
 This code use urllib library to retriev the document from a URL ("https://en.wikipedia.org/wiki/Artificial_intelligence"). Then displaying up to 90 characters, counting the overall number of characters in the document, and counting the paragraph (p) tags of the document.</br>
 The order of functions used in this code:</br>
+1. Import the required package
+* import urllib.request </br>
+* from bs4 import BeautifulSoup
+* import ssl 
+2. Open the desired URL
+* fhand=urllib.request.urlopen('https://en.wikipedia.org/wiki/Artificial_intelligence')
+3. Use a for loop to count the number of characters, print untill the 90 th characters.
+4. Use the BeautifulSoup library to count paragraph (p) tags from the retrieved HTML document.
+*  BeautifulSoup use to extract the href attributes from the anchor (a) tags.
+
 
 
 
