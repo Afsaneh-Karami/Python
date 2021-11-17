@@ -4,7 +4,11 @@ There is built-in support in Python called socket which makes it very easy to ma
 ![Capture](https://user-images.githubusercontent.com/78735911/142168312-f65de815-798a-4b68-92cf-99625d2ba78a.PNG)</br>
 First the program makes a connection to port 80 on the server. Since our program is playing the role of the “web browser”, the HTTP protocol says we must send the GET command followed by a blank line.</br>
 The order of functions used in this code:
-
+1. Definition of socket:
+* mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+2. Asking the user to enter the URL (for example http://data.pr4e.org/romeo.txt) 
+* cmd1=input('please enter your URL')
+One of the requirements for using the HTTP protocol is the need to send and receive data as bytes objects, instead of strings. In the preceding example, the encode() and decode() methods convert strings into bytes objects and back again.
 
 This code read through 'mail log.txt' file and extracting some information from it. 
 It build a histogram to categorizes each mail message by which day of the week and the hour that commit was done, and how many messages have come from each email address. Also, it convert all the text to lower case and only count the letters a-z (not counting spaces, digits, punctuation, or anything other than the letters a-z), and prints the letters in decreasing order of frequency.
