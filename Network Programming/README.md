@@ -1,4 +1,6 @@
-## Extracting data from a web page using the Hypertext Transfer Protocol (HTTP)
+# Extracting data from a web page using the Hypertext Transfer Protocol (HTTP) and urllib library
+
+### Using Hypertext Transfer Protocol:  </br>
 This code asks the user to enter a proper URL and read data from the web, also counts the number of characters it has received, and stops displaying any text after it has shown 400 characters. There is built-in support in Python called socket which makes it very easy to make network connections and retrieve data over those sockets in a Python program. you can see a socket connection below:
 ![Capture](https://user-images.githubusercontent.com/78735911/142168312-f65de815-798a-4b68-92cf-99625d2ba78a.PNG)</br>
 First, the program makes a connection to port 80 on the server. Since our program is playing the role of the “web browser”, the HTTP protocol says we must send the GET command followed by a blank line.</br>
@@ -24,4 +26,5 @@ The order of functions used in this code:
         if cout<=400:</br>
           print(b, end='') </br>
 5. Closing the socket
-* mysock.close()
+* mysock.close()</br></br>
+### Using urllib library to Retriev web pages:  </br>
