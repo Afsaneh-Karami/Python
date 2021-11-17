@@ -1,6 +1,6 @@
 # Extracting data from a web page using the Hypertext Transfer Protocol (HTTP) and urllib library
 
-### Using Hypertext Transfer Protocol:  </br>
+### Using Hypertext Transfer Protocol: (GOTO [Read web page over HTTP link](https://github.com/Afsaneh-Karami/Python/blob/main/Network%20Programming/Read%20web%20page%20over%20HTTP)) </br>
 This code asks the user to enter a proper URL and read data from the web, also counts the number of characters it has received, and stops displaying any text after it has shown 400 characters. There is built-in support in Python called socket which makes it very easy to make network connections and retrieve data over those sockets in a Python program. you can see a socket connection below:
 ![Capture](https://user-images.githubusercontent.com/78735911/142168312-f65de815-798a-4b68-92cf-99625d2ba78a.PNG)</br>
 First, the program makes a connection to port 80 on the server. Since our program is playing the role of the “web browser”, the HTTP protocol says we must send the GET command followed by a blank line.</br>
@@ -27,4 +27,15 @@ The order of functions used in this code:
           print(b, end='') </br>
 5. Closing the socket
 * mysock.close()</br></br>
-### Using urllib library to Retriev web pages:  </br>
+### Using urllib library to retriev web pages: (GOTO [Read web pages with urllib link](https://github.com/Afsaneh-Karami/Python/blob/main/Network%20Programming/Read%20web%20pages%20with%20urllib)) </br>
+While we can manually send and receive data over HTTP using the socket library, there is a much simpler way to perform this common task in Python by using the urllib library.
+Using urllib, you can treat a web page much like a file. You simply indicate which web page you would like to retrieve and urllib handles all of the HTTP protocol and header details. Once the web page has been opened with urllib.urlopen, we can treat it like a file and read through it using a for loop. </br>
+This code use urllib library to retriev the document from a URL ("https://en.wikipedia.org/wiki/Artificial_intelligence"). Then displaying up to 90 characters, counting the overall number of characters in the document, and counting the paragraph (p) tags of the document.</br>
+The order of functions used in this code:</br>
+
+
+
+
+
+
+
