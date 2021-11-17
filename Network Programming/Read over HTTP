@@ -1,0 +1,27 @@
+# Asking user enters an properly URL and reading from the web, also counts the number of characters it has received and stops displaying any text after it has shown 400 characters
+import socket
+cout=0
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+cmd1=input('please enter your URL')
+try:
+    cmd2=cmd1.split('/')
+    if len(cmd2)!=4: int(cmd1)
+    mysock.connect((cmd2[2], 80))
+    cmd = ('GET '+cmd1+ ' HTTP/1.0\r\n\r\n').encode()
+    
+    mysock.send(cmd)
+    while True:
+        data = mysock.recv(1)
+        
+        if len(data) <= 0:
+            break
+        cout=cout+len(data)
+        b=(data.decode())
+        if cout<=400:
+          print(b, end='')  
+       
+    print('\n',cout)
+    mysock.close()
+    
+except:
+    print('enter a correct URL')
