@@ -1,0 +1,16 @@
+# Retrieving web pages "http://data.pr4e.org/romeo.txt" with urllib
+import urllib.request,urllib.parse,urllib.error
+cout=0
+i=0
+fhand=urllib.request.urlopen('https://en.wikipedia.org/wiki/Artificial_intelligence')
+for line in fhand:
+    cout=cout+len(line)
+    if cout<=90:
+        print(line.decode().strip())
+    else:
+        i=i+1
+        if i==1:
+            print(line[ :(90-cout+len(line))].decode())
+        else:
+            continue
+print(cout)
