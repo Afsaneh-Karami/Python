@@ -27,10 +27,10 @@ The order of functions used in this code:
           print(b, end='') </br></br>
 5. Closing the socket
 * mysock.close()</br>
-### Using urllib library to retriev web pages: (GOTO [Read web pages with urllib link](https://github.com/Afsaneh-Karami/Python/blob/main/Network%20Programming/Read%20web%20pages%20with%20urllib)) </br>
+### Using urllib library to retrieve web pages: (GOTO [Read web pages with urllib link](https://github.com/Afsaneh-Karami/Python/blob/main/Network%20Programming/Read%20web%20pages%20with%20urllib)) </br>
 While we can manually send and receive data over HTTP using the socket library, there is a much simpler way to perform this common task in Python by using the urllib library.
 Using urllib, you can treat a web page much like a file. You simply indicate which web page you would like to retrieve and urllib handles all of the HTTP protocol and header details. Once the web page has been opened with urllib.urlopen, we can treat it like a file and read through it using a for loop. </br>
-This code use urllib library to retriev the document from a URL ("https://en.wikipedia.org/wiki/Artificial_intelligence"). Then displaying up to 90 characters, counting the overall number of characters in the document, and counting the paragraph (p) tags of the document.</br>
+This code uses urllib library to retrieve the document from a URL ("https://en.wikipedia.org/wiki/Artificial_intelligence"). Then displaying up to 90 characters, counting the overall number of characters in the document, and counting the paragraph (p) tags of the document.</br>
 The order of functions used in this code:</br></br>
 1. Import the required package
 * import urllib.request </br>
@@ -38,7 +38,7 @@ The order of functions used in this code:</br></br>
 * import ssl </br>
 2. Open the desired URL
 * fhand=urllib.request.urlopen('https://en.wikipedia.org/wiki/Artificial_intelligence')</br>
-3. Use a for loop to count the number of characters, print untill the 90 th characters.</br></br>
+3. Use a for loop to count the number of characters, print untill the 90 the character.</br></br>
 4. Use the BeautifulSoup library to count paragraph (p) tags from the retrieved HTML document.
 *  BeautifulSoup use to extract the href attributes from the anchor (a) tags.
 *  Ignore SSL certificate errors by the following code:
