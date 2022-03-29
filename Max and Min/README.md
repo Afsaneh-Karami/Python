@@ -1,0 +1,1 @@
+It is a program that takes numbers from a user until the user enters 'done', and finds the maximum and minimum of them. Once 'done' is entered, print out the largest and smallest of the numbers. If the user enters anything other than a valid number that input is ignored and while loop continues.
