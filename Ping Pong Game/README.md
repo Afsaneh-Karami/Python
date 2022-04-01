@@ -106,7 +106,7 @@ Note: Ball.penup() is used to deactivate the drawing of a turtle ball.
         Ball.sety(-335)<br />
         Ball.dy=Ball.dy*(-1)<br />
         
-    # fourth part
+    # Fourth part
     * In the fourth part if the ball touch the left or right line of the screen, means that the rockets can not touch the ball so the following steps happen:
    a- Ball go back to the position (0,0)<br />
    b- The score of the player on the opposit side increase by one.<br />
