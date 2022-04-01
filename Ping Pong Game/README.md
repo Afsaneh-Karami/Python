@@ -31,10 +31,102 @@ Note: penup() means no drawing when moving the turtle and pendown() means drawin
 * Racket_Right.color("black")
 * Racket_Right.shapesize(7, 1)
 * Racket_Right.penup()
-* Racket_Right.goto(500, 0)
+* Racket_Right.goto(500, 0)<br />
 5. making the ball in white color and diameter 20 mm and speed show its speed in two direction x and y
 * Ball= turtle.Turtle(shape='circle')
 * Ball.color("white")
 * Ball.dx=speed
 * Ball.dy=-speed
-* 
+6. producing a board for score of each player with yellow color in the position (0,310), also indicating the score 0 for each player at the start of game
+* Score = turtle.Turtle()
+* Score.color("yellow")
+* Score.penup()
+* Score.goto(0, 310)
+* Score.write("Player 1: 0   Player 2: 0", align="center", font=("Arial", 20 ))
+* score1=0
+* score2=0 <br />
+7. producing a board to show the winner at the end of game in white color and position (0,150)
+* winner=turtle.Turtle()
+* winner.color("white")
+* winner.penup()
+* winner.goto(0,150)
+8. define the fuction for rockets movment to up and down in order to catch the ball
+8.1 Racket_Left movment to up and down by the step 40 mm
+* def Racketup_L():
+    y = Racket_Left.ycor()
+    y = y+40
+    Racket_Left.sety(y)
+* def RocketDown_L():
+    y=Racket_Left.ycor()
+    y=y-40
+    Racket_Left.sety(y)
+8.2 Racket_Left movment to up and down by the step 40 mm
+* def Racketup_R():
+    y = Racket_Right.ycor()
+    y = y+40
+    Racket_Right.sety(y)
+* def RocketDown_R():
+    y= Racket_Right.ycor()
+    y=y-40
+    Racket_Right.sety(y)
+9. key connection that related to the fuctions difine in step 8
+* screen.listen()
+* screen.onkeypress(Racketup_L,"s")
+* screen.onkeypress(RocketDown_L,"d")
+* screen.onkeypress(Racketup_R,"k")
+* screen.onkeypress(RocketDown_R,"l")
+* Ball.penup()
+Note: with listen() set focus on TurtleScreen in order to collect key-events. Dummy arguments are provided in order to be able to pass listen() to the onclick method.
+Note: turtle.onkeyrelease(fun, key) related a function to a key, so when you press that key related function apply.
+Note:Ball.penup() use to inactive drawing of turtle ball
+10. main program that control the movement of ball 
+* while True:
+
+    # first part
+    screen.update()
+    Ball.setx(Ball.xcor()+Ball.dx)
+    Ball.sety(Ball.ycor()+Ball.dy)
+
+    # second part
+    if (score1==num or score2==num):
+        if score1==num:
+            winner.write("Player 1 win the game", align="center",font=("Arial", 20 ))
+            
+        elif score2==num:
+            winner.write("Player 2 win the game", align="center", font=("Arial", 20 ))
+        break
+    
+    # third part
+    if Ball.ycor()>335:
+        Ball.sety(335)
+        Ball.dy=Ball.dy*(-1)
+    if Ball.ycor()<-335:
+        Ball.sety(-335)
+        Ball.dy=Ball.dy*(-1)
+        
+    # fourth part
+    if Ball.xcor()>600:
+        Ball.home()
+        score1=score1+1
+        Ball.dy=Ball.dy*(-1)
+        Score.clear()
+        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))
+    if Ball.xcor()<-600:
+        Ball.home()
+        score2=score2+1
+        Ball.dy=Ball.dy*(-1)
+        Score.clear()
+        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))
+    if (Ball.xcor()>=475) and (Ball.xcor()<500) and (Ball.ycor()<Racket_Right.ycor()+45) and (Ball.ycor()>Racket_Right.ycor()-45):
+        Ball.dx=Ball.dx*(-1)
+                
+    if (Ball.xcor()<=-475) and (Ball.xcor()>-500) and (Ball.ycor()<Racket_Left.ycor()+45) and (Ball.ycor()>Racket_Left.ycor()-45):
+        Ball.dx=Ball.dx*-1
+   Note: in first part screen updates and start movement of ball defines.
+   Note: in second part when the score of one player reach to the num (Max score for winning) the game end and the winner is define in score board.
+   Note: in third part if the ball touch the top or down line of the screen this code comes back the ball by changing its direction (multiplying its speed in y direction by -1)
+   Note: in fourth part if ball touch left or right line of the screen, means that the rockets can not touch the ball so following steps happen:
+   a- ball go back to the position (0,0)
+   b- the score of the player in the opposit side increase by one.
+   c- changing the y direction of teh ball by mutiplying its speed with -1 
+   d- the board of score update by new value
