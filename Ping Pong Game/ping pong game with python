@@ -1,0 +1,117 @@
+import turtle
+speed=float(input("enter the speed of Ball(between 3-10): " ))
+num=int(input("enter the Maxium score for winning:"))
+
+#screen
+screen=turtle.Screen()
+screen.setup(1200,700)
+screen.title("pong play")
+screen.bgcolor("green")
+
+#center_line
+center_line=turtle.Turtle()
+center_line.penup()
+center_line.goto(0,350)
+center_line.pendown()
+center_line.goto(0,-350)
+
+# Racket_Left
+Racket_Left = turtle.Turtle(shape="square")
+Racket_Left.color("black")
+Racket_Left.shapesize(7, 1)
+Racket_Left.penup()
+Racket_Left.goto(-500, 0)
+
+# Racket_Right
+Racket_Right = turtle.Turtle(shape="square")
+Racket_Right.color("black")
+Racket_Right.shapesize(7, 1)
+Racket_Right.penup()
+Racket_Right.goto(500, 0)
+
+#Ball
+Ball= turtle.Turtle(shape='circle')
+Ball.color("white")
+Ball.dot(20)
+Ball.dx=-speed
+Ball.dy=speed
+
+#Score
+Score = turtle.Turtle()
+Score.color("yellow")
+Score.penup()
+Score.goto(0, 310)
+Score.write("Player 1: 0   Player 2: 0", align="center", font=("Arial", 20 ))
+score1=0
+score2=0
+
+#Winner
+winner=turtle.Turtle()
+winner.color("white")
+winner.penup()
+winner.goto(0,150)
+
+# Racket_Move
+def Racketup_L():
+    y = Racket_Left.ycor()
+    y = y+40
+    Racket_Left.sety(y)
+def RocketDown_L():
+    y=Racket_Left.ycor()
+    y=y-40
+    Racket_Left.sety(y)
+def Racketup_R():
+    y = Racket_Right.ycor()
+    y = y+40
+    Racket_Right.sety(y)
+def RocketDown_R():
+    y= Racket_Right.ycor()
+    y=y-40
+    Racket_Right.sety(y)
+   
+# key_connection
+screen.listen()
+screen.onkeypress(Racketup_L,"s")
+screen.onkeypress(RocketDown_L,"d")
+screen.onkeypress(Racketup_R,"k")
+screen.onkeypress(RocketDown_R,"l")
+Ball.penup()
+
+#run of program
+while True:
+    screen.update()
+    Ball.setx(Ball.xcor()+Ball.dx)
+    Ball.sety(Ball.ycor()+Ball.dy)
+
+    if (score1==num or score2==num):
+        if score1==num:
+            winner.write("Player 1 win the game", align="center",font=("Arial", 20 ))
+            
+        elif score2==num:
+            winner.write("Player 2 win the game", align="center", font=("Arial", 20 ))    
+        break
+        
+    if Ball.ycor()>335:
+        Ball.sety(335)
+        Ball.dy=Ball.dy*(-1)
+    if Ball.ycor()<-335:
+        Ball.sety(-335)
+        Ball.dy=Ball.dy*(-1)
+        
+    if Ball.xcor()>600:
+        Ball.home()
+        score1=score1+1
+        Ball.dy=Ball.dy*(-1)
+        Score.clear()
+        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))
+    if Ball.xcor()<-600:
+        Ball.home()
+        score2=score2+1
+        Ball.dy=Ball.dy*(-1)
+        Score.clear()
+        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))
+        
+    if (Ball.xcor()>=475) and (Ball.xcor()<500) and (Ball.ycor()<Racket_Right.ycor()+45) and (Ball.ycor()>Racket_Right.ycor()-45):
+        Ball.dx=Ball.dx*(-1)      
+    if (Ball.xcor()<=-475) and (Ball.xcor()>-500) and (Ball.ycor()<Racket_Left.ycor()+45) and (Ball.ycor()>Racket_Left.ycor()-45):
+        Ball.dx=Ball.dx*-1
