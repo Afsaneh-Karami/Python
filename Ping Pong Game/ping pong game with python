@@ -32,9 +32,8 @@ Racket_Right.goto(500, 0)
 #Ball
 Ball= turtle.Turtle(shape='circle')
 Ball.color("white")
-Ball.dot(20)
-Ball.dx=-speed
-Ball.dy=speed
+Ball.dx=speed
+Ball.dy=-speed
 
 #Score
 Score = turtle.Turtle()
