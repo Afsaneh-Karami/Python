@@ -80,53 +80,56 @@ Note: with listen() set focus on TurtleScreen in order to collect key-events. Du
 Note: turtle.onkeyrelease(fun, key) related a function to a key, so when you press that key related function apply.
 Note:Ball.penup() use to inactive drawing of turtle ball
 10. main program that control the movement of ball 
-* while True:
+* while True:<br />
 
     # first part
-    screen.update()
-    Ball.setx(Ball.xcor()+Ball.dx)
-    Ball.sety(Ball.ycor()+Ball.dy)
+    * in first part screen updates and start movement of ball defines.
+    screen.update()<br />
+    Ball.setx(Ball.xcor()+Ball.dx)<br />
+    Ball.sety(Ball.ycor()+Ball.dy)<br />
 
     # second part
-    if (score1==num or score2==num):
-        if score1==num:
-            winner.write("Player 1 win the game", align="center",font=("Arial", 20 ))
-            
-        elif score2==num:
-            winner.write("Player 2 win the game", align="center", font=("Arial", 20 ))
-        break
+    * in second part when the score of one player reach to the num (Max score for winning) the game end and the winner is define in score board.
+    if (score1==num or score2==num):<br />
+        if score1==num:<br />
+            winner.write("Player 1 win the game", align="center",font=("Arial", 20 ))<br />
+         elif score2==num:<br />
+            winner.write("Player 2 win the game", align="center", font=("Arial", 20 ))<br />
+        break<br />
     
     # third part
-    if Ball.ycor()>335:
-        Ball.sety(335)
-        Ball.dy=Ball.dy*(-1)
-    if Ball.ycor()<-335:
-        Ball.sety(-335)
-        Ball.dy=Ball.dy*(-1)
+    * in third part if the ball touch the top or down line of the screen this code comes back the ball by changing its direction (multiplying its speed in y direction by -1)
+    if Ball.ycor()>335:<br />
+        Ball.sety(335)<br />
+        Ball.dy=Ball.dy*(-1)<br />
+    if Ball.ycor()<-335:<br />
+        Ball.sety(-335)<br />
+        Ball.dy=Ball.dy*(-1)<br />
         
     # fourth part
-    if Ball.xcor()>600:
-        Ball.home()
-        score1=score1+1
-        Ball.dy=Ball.dy*(-1)
-        Score.clear()
-        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))
-    if Ball.xcor()<-600:
-        Ball.home()
-        score2=score2+1
-        Ball.dy=Ball.dy*(-1)
-        Score.clear()
-        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))
-    if (Ball.xcor()>=475) and (Ball.xcor()<500) and (Ball.ycor()<Racket_Right.ycor()+45) and (Ball.ycor()>Racket_Right.ycor()-45):
-        Ball.dx=Ball.dx*(-1)
-                
-    if (Ball.xcor()<=-475) and (Ball.xcor()>-500) and (Ball.ycor()<Racket_Left.ycor()+45) and (Ball.ycor()>Racket_Left.ycor()-45):
-        Ball.dx=Ball.dx*-1
-   Note: in first part screen updates and start movement of ball defines.
-   Note: in second part when the score of one player reach to the num (Max score for winning) the game end and the winner is define in score board.
-   Note: in third part if the ball touch the top or down line of the screen this code comes back the ball by changing its direction (multiplying its speed in y direction by -1)
-   Note: in fourth part if ball touch left or right line of the screen, means that the rockets can not touch the ball so following steps happen:
-   a- ball go back to the position (0,0)
-   b- the score of the player in the opposit side increase by one.
-   c- changing the y direction of teh ball by mutiplying its speed with -1 
-   d- the board of score update by new value
+    * in fourth part if ball touch left or right line of the screen, means that the rockets can not touch the ball so following steps happen:
+   a- ball go back to the position (0,0)<br />
+   b- the score of the player in the opposit side increase by one.<br />
+   c- changing the y direction of teh ball by mutiplying its speed with -1 <br />
+   d- the board of score update by new value<br /><br />
+    if Ball.xcor()>600:<br />
+        Ball.home()<br />
+        score1=score1+1<br />
+        Ball.dy=Ball.dy*(-1)<br />
+        Score.clear()<br />
+        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))<br />
+    if Ball.xcor()<-600:<br />
+        Ball.home()<br />
+        score2=score2+1<br />
+        Ball.dy=Ball.dy*(-1)<br />
+        Score.clear()<br />
+        Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))<br />
+    # fifth part
+    * In the fifth part the position of impaction of ball on the rockets surface is defined, when ball touch the face of rocket then should change its x direction to oppositr side by multiplying by -1.<br />
+    if (Ball.xcor()>=475) and (Ball.xcor()<500) and (Ball.ycor()<Racket_Right.ycor()+45) and (Ball.ycor()>Racket_Right.ycor()-45):<br />
+        Ball.dx=Ball.dx*(-1)<br />          
+    if (Ball.xcor()<=-475) and (Ball.xcor()>-500) and (Ball.ycor()<Racket_Left.ycor()+45) and (Ball.ycor()>Racket_Left.ycor()-45):<br />
+        Ball.dx=Ball.dx*-1<br />
+    
+   
+  
