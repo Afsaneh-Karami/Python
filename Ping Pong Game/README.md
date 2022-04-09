@@ -1,5 +1,5 @@
 # Writing Ping Pong Game in python with turtle library:
-In this code, I used turtle library to create a screen, rockets, a ball, and a board to show the result of the play.
+In this code, I used the turtle library to create a screen, rackets, a ball, and a scoring board to show the result of the play.
 
 #Introduction of Turtle library:
 Turtle is a Python library to create pictures and shapes.
