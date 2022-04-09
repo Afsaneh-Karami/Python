@@ -9,40 +9,40 @@ The turtle moves around with commands and creates shapes.
 <!--In computer graphics, turtle graphics are vector graphics using a relative cursor upon a Cartesian plane. Turtle graphics is a feature of the Logo programming language. -->
 The order of functions to make a ping pong game:
 <br />
-1. Asking the ser to enter the speed of ball and maximum score for winning tha game.
+1. Asking the user to enter the speed and maximum score for winning tha game.
 * speed=float(input("enter the speed of Ball(between 3-10): " ))
 * num=int(input("enter the Maxium score for winning:"))<br />
-2. Producing a green screen for game with the size 1200 X 700 mm2 with the name "pong play".
+2. Generating a green screen for the game with the size 1200 X 700 mm2 with the name "pong play".
 * screen=turtle.Screen()
 * screen.setup(1200,700)
 * screen.title("pong play")
 * screen.bgcolor("green")<br />
-3. Producing a center line to divide the screen into two equal parts, each part is for one player.
+3. Generating a center line to divide the screen into two equal parts for each player.
 * center_line=turtle.Turtle()
 * center_line.penup()
 * center_line.goto(0,350)
 * center_line.pendown()
 * center_line.goto(0,-350)
-Note: penup() means no drawing when moving the turtle and pendown() means drawing when the turtle moves, and with goto(x,y) you can indicate the place of turtle. <br />
-4. Making rackets on both side of the screen.
+Note: penup() means no drawing when moving the turtle and pendown() means drawing when the turtle moves, and with goto(x,y) you can indicate the cartesian place of the turtle. <br />
+4. Making rackets on both sides of the screen.
 4.1 Left rocket properties: the square shape in black color with the shape size(7,1) in the position (x,y)=(-500, 0)
 * Racket_Left = turtle.Turtle(shape="square")
 * Racket_Left.color("black")
 * Racket_Left.shapesize(7, 1)
 * Racket_Left.penup()
 * Racket_Left.goto(-500, 0)
-4.2 Right rocket properties: the square shape in black color with the shape size(7,1) in the position (x,y)=(500, 0)
+4.2 Right racket properties: the square shape in black color with the shape size(7,1) in the position (x,y)=(500, 0)
 * Racket_Right = turtle.Turtle(shape="square")
 * Racket_Right.color("black")
 * Racket_Right.shapesize(7, 1)
 * Racket_Right.penup()
 * Racket_Right.goto(500, 0)<br />
-5. Making the ball in white color and diameter 20 mm and speed show its speed in two direction x and y.
+5. Making the ball in a white color with 20 mm diameter and its speed in two directions x and y.
 * Ball= turtle.Turtle(shape='circle')
 * Ball.color("white")
 * Ball.dx=speed
 * Ball.dy=-speed
-6. Producing a board for the score of each player with yellow color in the position (0,310), also indicating the score 0 for each player at the start of the game.
+6. Producing a board for showing the score of each player with yellow color in the position (0,310), also indicating the score 0 for each player at the start of the game.
 * Score = turtle.Turtle()
 * Score.color("yellow")
 * Score.penup()
@@ -50,12 +50,12 @@ Note: penup() means no drawing when moving the turtle and pendown() means drawin
 * Score.write("Player 1: 0   Player 2: 0", align="center", font=("Arial", 20 ))
 * score1=0
 * score2=0 <br />
-7. Producing a board to show the winner at the end of the game in white color and position (0,150).
+7. Creating a board to show the winner at the end of the game in a white color and position (0,150).
 * winner=turtle.Turtle()
 * winner.color("white")
 * winner.penup()
 * winner.goto(0,150)
-8. Define the function for rockets movement to up and down in order to catch the ball
+8. Defining the function for rackets movement to up and down in order to catch the ball
 8.1 Racket_Left movment to up and down by the step 40 mm
 * def Racketup_L():
     y = Racket_Left.ycor()
@@ -70,16 +70,16 @@ Note: penup() means no drawing when moving the turtle and pendown() means drawin
     y = Racket_Right.ycor()
     y = y+40
     Racket_Right.sety(y)
-* def RocketDown_R():
+* def RacketDown_R():
     y= Racket_Right.ycor()
     y=y-40
     Racket_Right.sety(y)
 9. The key connection that is related to the functions defined in step 8:
 * screen.listen()
 * screen.onkeypress(Racketup_L,"s")
-* screen.onkeypress(RocketDown_L,"d")
+* screen.onkeypress(RacketDown_L,"d")
 * screen.onkeypress(Racketup_R,"k")
-* screen.onkeypress(RocketDown_R,"l")
+* screen.onkeypress(RacketDown_R,"l")
 * Ball.penup()
 Note: With listen() set focus on TurtleScreen in order to collect key-events. Dummy arguments are provided in order to be able to pass listen() to the onclick method.
 Note: turtle.onkeyrelease(fun, key) related a function to a key, so when you press that key related function applies.
