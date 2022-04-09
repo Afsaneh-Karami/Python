@@ -55,7 +55,7 @@ def Racketup_L():
     y = Racket_Left.ycor()
     y = y+40
     Racket_Left.sety(y)
-def RocketDown_L():
+def RacketDown_L():
     y=Racket_Left.ycor()
     y=y-40
     Racket_Left.sety(y)
@@ -63,7 +63,7 @@ def Racketup_R():
     y = Racket_Right.ycor()
     y = y+40
     Racket_Right.sety(y)
-def RocketDown_R():
+def RacketDown_R():
     y= Racket_Right.ycor()
     y=y-40
     Racket_Right.sety(y)
@@ -71,9 +71,9 @@ def RocketDown_R():
 # key_connection
 screen.listen()
 screen.onkeypress(Racketup_L,"s")
-screen.onkeypress(RocketDown_L,"d")
+screen.onkeypress(RacketDown_L,"d")
 screen.onkeypress(Racketup_R,"k")
-screen.onkeypress(RocketDown_R,"l")
+screen.onkeypress(RacketDown_R,"l")
 Ball.penup()
 
 #run of program
