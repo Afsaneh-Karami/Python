@@ -9,7 +9,7 @@ The turtle moves around with commands and creates shapes.
 <!--In computer graphics, turtle graphics are vector graphics using a relative cursor upon a Cartesian plane. Turtle graphics is a feature of the Logo programming language. -->
 The order of functions to make a ping pong game:
 <br />
-1. Asking the user to enter the speed and maximum score for winning the game.
+1. Asking the user to enter the speed and the maximum score for winning the game.
 * speed=float(input("enter the speed of Ball(between 3-10): " ))
 * num=int(input("enter the Maxium score for winning:"))<br />
 2. Generating a green screen for the game with the size 1200 X 700 mm2 with the name "pong play".
