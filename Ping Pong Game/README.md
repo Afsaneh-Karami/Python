@@ -50,12 +50,12 @@ Note: penup() means no drawing when moving the turtle and pendown() means drawin
 * Score.write("Player 1: 0   Player 2: 0", align="center", font=("Arial", 20 ))
 * score1=0
 * score2=0 <br />
-7. Creating a board to show the winner at the end of the game in a white color and position (0,150).
+7. Creating a board to show the winner at the end of the game in a white color and the position (0,150).
 * winner=turtle.Turtle()
 * winner.color("white")
 * winner.penup()
 * winner.goto(0,150)
-8. Defining the function for rackets movement to up and down in order to catch the ball
+8. Defining functions for the rackets' movements to up and down in order to catch the ball
 8.1 Racket_Left movment to up and down by the step 40 mm
 * def Racketup_L():
     y = Racket_Left.ycor()
@@ -74,27 +74,27 @@ Note: penup() means no drawing when moving the turtle and pendown() means drawin
     y= Racket_Right.ycor()
     y=y-40
     Racket_Right.sety(y)
-9. The key connection that is related to the functions defined in step 8:
+9. Associating keyboard letters to the rackets' movement functions that are defined in step 8:
 * screen.listen()
 * screen.onkeypress(Racketup_L,"s")
 * screen.onkeypress(RacketDown_L,"d")
 * screen.onkeypress(Racketup_R,"k")
 * screen.onkeypress(RacketDown_R,"l")
 * Ball.penup()
-Note: With listen() set focus on TurtleScreen in order to collect key-events. Dummy arguments are provided in order to be able to pass listen() to the onclick method.
-Note: turtle.onkeyrelease(fun, key) related a function to a key, so when you press that key related function applies.
+Note: The function listen() listens to the keyboard-events. Dummy arguments are provided in order to be able to pass listen() to the onclick method.
+Note: turtle.onkeyrelease(fun, key) connects a function to a key, so we presse the associated key, then the function is applied.
 Note: Ball.penup() is used to deactivate the drawing of a turtle ball.
 10. The main program that controls the movement of the ball:
 * while True:<br />
 
     # First part
-    * In the first part screen updates and the start movement of the ball defines.
+    * In the first part, the screen is updated and the starting position and movement of the ball are defined.
     screen.update()<br />
     Ball.setx(Ball.xcor()+Ball.dx)<br />
     Ball.sety(Ball.ycor()+Ball.dy)<br />
 
     # Second part
-    * In the second part when the score of one player reaches the num (Max score for winning) the game end and the winner is defined on score board.
+    * In the second part, when the score of one player reaches the num (Max score for winning), the game ends and the winner is announced on the scoring board.
     if (score1==num or score2==num):<br />
         if score1==num:<br />
             winner.write("Player 1 win the game", align="center",font=("Arial", 20 ))<br />
@@ -103,7 +103,7 @@ Note: Ball.penup() is used to deactivate the drawing of a turtle ball.
         break<br />
     
     # Third part
-    * In the third part when the ball touches the top or down line of the screen  the ball comes back to the screen by changing its direction (multiplying its speed in the y-direction by -1)
+    * In the third part when the ball touches the top or down line of the screen,  the ball comes back to the screen by changing its direction (multiplying its speed in the y-direction by -1)
     if Ball.ycor()>335:<br />
         Ball.sety(335)<br />
         Ball.dy=Ball.dy*(-1)<br />
@@ -112,11 +112,11 @@ Note: Ball.penup() is used to deactivate the drawing of a turtle ball.
         Ball.dy=Ball.dy*(-1)<br />
         
     # Fourth part
-    * In the fourth part if the ball touch the left or right line of the screen, means that the rockets can not touch the ball so the following steps happen:
-   a- Ball go back to the position (0,0)<br />
-   b- The score of the player on the opposit side increase by one.<br />
+    * In the fourth part, when the ball touches the left or right line of the screen, this means that the player missed the ball and the racket did not touch the ball so the following steps happen:
+   a- Ball goes back to the position (0,0)<br />
+   b- The score of the player on the opposit side increases by one.<br />
    c- Changing the y-direction of the ball by multiplying its speed with -1 <br />
-   d- The board of scores updated by the new value.<br /><br />
+   d- The scoring board is updated by the new value.<br /><br />
     if Ball.xcor()>600:<br />
         Ball.home()<br />
         score1=score1+1<br />
@@ -130,7 +130,7 @@ Note: Ball.penup() is used to deactivate the drawing of a turtle ball.
         Score.clear()<br />
         Score.write("Player 1: {}   Player 2: {}".format(score1,score2), align="center", font=("Arial", 20 ))<br />
     # Fifth part
-    * In the fifth part the position of impaction of the ball on the surface of the rocket is defined, when the ball touches the face of the rocket then should change its x-direction to opposite side by multiplying by -1.<br />
+    * In the fifth part, when the ball hits the surface of the racket, then the ball's direction changes, where its x-direction becomes the opposite side by multiplying by -1.<br />
     if (Ball.xcor()>=475) and (Ball.xcor()<500) and (Ball.ycor()<Racket_Right.ycor()+45) and (Ball.ycor()>Racket_Right.ycor()-45):<br />
         Ball.dx=Ball.dx*(-1)<br />          
     if (Ball.xcor()<=-475) and (Ball.xcor()>-500) and (Ball.ycor()<Racket_Left.ycor()+45) and (Ball.ycor()>Racket_Left.ycor()-45):<br />
