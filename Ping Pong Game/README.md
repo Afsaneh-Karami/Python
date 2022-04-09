@@ -2,7 +2,9 @@
 In this code, I used turtle library to create a screen, rockets, a ball, and a board to show the result of the play.
 
 #Introduction of Turtle library:
-Turtle is a Python library that enables users to create pictures and shapes by providing them with a virtual canvas. The onscreen pen that you use for drawing is called the turtle, this is what gives the library its name. In computer graphics, turtle graphics are vector graphics using a relative cursor upon a Cartesian plane. Turtle graphics is a feature of the Logo programming language. 
+Turtle is a Python library to create pictures and shapes.
+<!-- The onscreen pen that you use for drawing is called the turtle, this is what gives the library its name.-->
+In computer graphics, turtle graphics are vector graphics using a relative cursor upon a Cartesian plane. Turtle graphics is a feature of the Logo programming language. 
 The order of functions to make a ping pong game:<br /
 1. Asking the ser to enter the speed of ball and maximum score for winning tha game.
 * speed=float(input("enter the speed of Ball(between 3-10): " ))
