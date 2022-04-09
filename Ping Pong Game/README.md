@@ -25,7 +25,7 @@ Here is the order of functions to make a ping pong game:
 * center_line.goto(0,-350)
 Note: penup() means no drawing when moving the turtle and pendown() means drawing when the turtle moves, and with goto(x,y) you can indicate the cartesian place of the turtle. <br />
 4. Making rackets on both sides of the screen.
-4.1 Left rocket properties: the square shape in black color with the shape size(7,1) in the position (x,y)=(-500, 0)
+4.1 Left racket properties: the square shape in black color with the shape size(7,1) in the position (x,y)=(-500, 0)
 * Racket_Left = turtle.Turtle(shape="square")
 * Racket_Left.color("black")
 * Racket_Left.shapesize(7, 1)
@@ -42,7 +42,7 @@ Note: penup() means no drawing when moving the turtle and pendown() means drawin
 * Ball.color("white")
 * Ball.dx=speed
 * Ball.dy=-speed
-6. Producing a board for showing the score of each player with yellow color in the position (0,310), also indicating the score 0 for each player at the start of the game.
+6. Making a scoring board to show the score of each player with the yellow color in the position (0,310), also indicating the score 0 for each player at the start of the game.
 * Score = turtle.Turtle()
 * Score.color("yellow")
 * Score.penup()
@@ -61,7 +61,7 @@ Note: penup() means no drawing when moving the turtle and pendown() means drawin
     y = Racket_Left.ycor()
     y = y+40
     Racket_Left.sety(y)
-* def RocketDown_L():
+* def RacketDown_L():
     y=Racket_Left.ycor()
     y=y-40
     Racket_Left.sety(y)
