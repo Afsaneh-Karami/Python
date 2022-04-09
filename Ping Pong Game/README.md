@@ -7,7 +7,7 @@ Turtle is a Python library to create pictures and shapes.
 In this library, the turtle is like a pen with attributes such as a location, an orientation, color, width, and on/off state.
 The turtle moves around with commands and creates shapes.
 <!--In computer graphics, turtle graphics are vector graphics using a relative cursor upon a Cartesian plane. Turtle graphics is a feature of the Logo programming language. -->
-The order of functions to make a ping pong game:
+Here is the order of functions to make a ping pong game:
 <br />
 1. Asking the user to enter the speed and the maximum score for winning the game.
 * speed=float(input("enter the speed of Ball(between 3-10): " ))
