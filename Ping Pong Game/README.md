@@ -12,7 +12,7 @@ Here is the order of functions to make a ping pong game:
 1. Asking the user to enter the speed and the maximum score for winning the game.
 * speed=float(input("enter the speed of Ball(between 3-10): " ))
 * num=int(input("enter the Maxium score for winning:"))<br />
-2. Generating a green screen for the game with the size 1200 X 700 mm2 with the name "pong play".
+2. Generating a green screen (table tennis) for the game with the size 1200 X 700 mm2 with the name "pong play".
 * screen=turtle.Screen()
 * screen.setup(1200,700)
 * screen.title("pong play")
