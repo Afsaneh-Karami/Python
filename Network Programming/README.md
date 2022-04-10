@@ -5,7 +5,7 @@ This code asks the user to enter a proper URL and receives data from the web url
 <!---you can see a socket connection below:
 ![Capture](https://user-images.githubusercontent.com/78735911/142168312-f65de815-798a-4b68-92cf-99625d2ba78a.PNG)</br> --->
 
-First, the program makes a connection to port 80 on the server. Since our program is playing the role of the “web browser”, the HTTP protocol says we must send the GET command followed by a blank line.</br>
+First, the program makes a connection to the port 80 on the server. Since the program is playing the role of the “web browser”, it must use the HTTP protocol and send the GET command followed by a blank line.</br>
 The order of functions used in this code:
 1. Definition of socket:
 * mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</br>
@@ -30,8 +30,8 @@ The order of functions used in this code:
 5. Closing the socket
 * mysock.close()</br>
 ### Using urllib library to retrieve web pages: (GOTO [Read web pages with urllib link](https://github.com/Afsaneh-Karami/Python/blob/main/Network%20Programming/Read%20web%20pages%20with%20urllib)) </br>
-While we can manually send and receive data over HTTP using the socket library, there is a much simpler way to perform this common task in Python by using the urllib library.
-Using urllib, you can treat a web page much like a file. You simply indicate which web page you would like to retrieve and urllib handles all of the HTTP protocol and header details. Once the web page has been opened with urllib.urlopen, we can treat it like a file and read through it using a for loop. </br>
+While we can manually send and receive data over HTTP using the socket library, there is a much simpler way to do this in Python by using the urllib library.
+Using urllib, we can treat a web page much like a file. We just indicate the desired web page to retrieve data and urllib handles all of the HTTP protocol and header details. Once the web page has been opened with urllib.urlopen, we can treat it like a file and read through it using a for loop. </br>
 This code uses urllib library to retrieve the document from a URL ("https://en.wikipedia.org/wiki/Artificial_intelligence"). Then displaying up to 90 characters, counting the overall number of characters in the document, and counting the paragraph (p) tags of the document.</br>
 The order of functions used in this code:</br></br>
 1. Import the required package
