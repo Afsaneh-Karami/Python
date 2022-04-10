@@ -31,7 +31,7 @@ The order of functions used in this code:
 * mysock.close()</br>
 ### Using urllib library to retrieve web pages: (GOTO [Read web pages with urllib link](https://github.com/Afsaneh-Karami/Python/blob/main/Network%20Programming/Read%20web%20pages%20with%20urllib)) </br>
 While we can manually send and receive data over HTTP using the socket library, there is a much simpler way to do this in Python by using the urllib library.
-Using urllib, we can treat a web page much like a file. We just indicate the desired web page to retrieve data and urllib handles all of the HTTP protocol and header details. Once the web page has been opened with urllib.urlopen, we can treat it like a file and read through it using a for loop. </br>
+Using urllib, we can treat a web page much like a file. We just indicate the desired web page to retrieve data and urllib handles all of the HTTP protocol and header details. When the web page has been opened with urllib.urlopen, we treat it like a file and read through it using a for loop. </br>
 This code uses urllib library to retrieve the document from a URL ("https://en.wikipedia.org/wiki/Artificial_intelligence"). Then displaying up to 90 characters, counting the overall number of characters in the document, and counting the paragraph (p) tags of the document.</br>
 The order of functions used in this code:</br></br>
 1. Import the required package
